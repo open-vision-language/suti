@@ -282,12 +282,32 @@
 
     <div class="header_dark_gray text-center">
       <h2>Failure modes of the SuTI</h2>
+      <h8>SuTI often fails when subject appearance deviates too much from its prior, or when the text depicts rare visual scene</h8>
     </div>
     <div class="row mt-4 mb-4">
       <img src="assets/failure.png" class="figure_image">
     </div>
 
 <!-- anon-on -->
+<div class="header_dark_gray text-center">
+  <h2>Cite us using the following BibTex</h2>
+</div>
+<div class="abstract">
+  <div class="inside">
+    <pre>
+      <code>
+      @inproceedings{chen2023suti,
+        title={Subject-driven Text-to-Image Generation via Apprenticeship Learning}, 
+        author={Chen, Wenhu and Hu, Hexiang and Li, Yandong and Ruiz, Nataniel
+                and Jia, Xuhui and Chang, Ming-Wei and Cohen, William W},
+        booktitle={Technical Report},
+        year={2023},
+      }
+      </code>
+    </pre>
+  </div>
+</div>
+
 <div class="content">
   <h1>Special Thanks</h1>
   <p class="smaller" style="text-align: justify;">{{ acknowledgement }}</p>
@@ -405,107 +425,6 @@
   }
 
   setTimeout(randomSwapImage, 1000, "#gallery1");
-</script>
-
-<script type="text/javascript">
-  compositionalAnimalsManualClicked = false;
-  compositionalMadeOfManualClicked = false;
-
-  comp_files = {
-    "Original (with mask)": "./images/inpaint/boston_masked.jpg",
-    "\"New York in the background\"": "./images/inpaint/boston_nyc.jpg",
-    "\"Paris in the background\"": "./images/inpaint/boston_paris.jpg",
-    "\"San Francisco in the background\"": "./images/inpaint/boston_sf.jpg"
-  }
-
-  function updateComposition(name) {
-    var compositionSpans = $(name + " p span.selected").map(function() {
-      return $(this).text();
-    }).get();
-    var compositionText = "";
-    for (var compositionSpansIdx = 0; compositionSpansIdx < compositionSpans.length; ++compositionSpansIdx) {
-      if (compositionSpansIdx > 0) {
-        compositionText += " ";
-      }
-      compositionText += compositionSpans[compositionSpansIdx];
-    }
-    if (name == "#compositional_madeof") {
-      if (compositionText == "Original") {
-        $(name + "_img").attr("src", "./images/edit_opt/orig.gif")
-      } else {
-        // Generate a random index that is not the one already selected
-        randImgIdx = "/"; // something guaranteed to be in the path
-        cur_src = $(name + "_img").attr("src");
-        while (cur_src.search(randImgIdx) != -1) {
-          randImgIdx = Math.floor(Math.random() * 4);
-        }
-        first_space = compositionText.search(" ");
-        file = compositionText.slice(first_space + 1, -2).replaceAll(" ", "-");
-        $(name + "_img").attr("src", "./images/edit_opt/" + file + "_" + randImgIdx + ".gif")
-      }
-    } else if (name == "#compositional_animals") {
-      randImgIdx = Math.floor(Math.random() * 4);
-      $(name + "_img").attr("src", comp_files[compositionText]);
-    }
-  }
-
-  function randomComposition(name) {
-    if (name == "#compositional_animals" && compositionalAnimalsManualClicked == true) {
-      compositionalAnimalsManualClicked = false;
-      setTimeout(randomComposition, 4000, name);
-      return;
-    } else if (name == "#compositional_madeof" &&
-               compositionalMadeOfManualClicked == true) {
-      compositionalMadeOfManualClicked = false;
-      setTimeout(randomComposition, 4000, name);
-      return;
-    }
-
-    var compositionPs = $(name + " p.selectable").toArray();
-    var compositionOptions = [];
-    for (var i = 0; i < compositionPs.length; ++i) {
-      var compositionSpanSelected = $(compositionPs[i]).children("span.selected");
-      var compositionSpans = $(compositionPs[i]).children("span").not("span.selected").toArray();
-      for (var j = 0; j < compositionSpans.length; ++j) {
-        compositionOption = {
-          "p": compositionPs[i],
-          "span_selected": compositionSpanSelected,
-          "span_option": $(compositionSpans[j])
-        };
-        compositionOptions.push(compositionOption);
-      }
-    }
-
-    randomCompositionOptionIdx = Math.floor(Math.random() * compositionOptions.length);
-    randomCompositionOption = compositionOptions[randomCompositionOptionIdx];
-
-    randomCompositionOption.span_selected.toggleClass("selected");
-    randomCompositionOption.span_option.toggleClass("selected");
-
-    updateComposition(name);
-    setTimeout(randomComposition, 4000, name);
-  }
-
-  $("#compositional_animals p.selectable span").click(function() {
-    $(this).siblings().removeClass("selected");
-    $(this).addClass("selected");
-    updateComposition("#compositional_animals");
-    compositionalAnimalsManualClicked = true;
-  });
-  $("#compositional_madeof_img").click(function() {
-    updateComposition("#compositional_madeof");
-    compositionalAnimalsManualClicked = true;
-  });
-
-  $("#compositional_madeof p.selectable span").click(function() {
-    $(this).siblings().removeClass("selected");
-    $(this).addClass("selected");
-    updateComposition("#compositional_madeof");
-    compositionalMadeOfManualClicked = true;
-  });
-
-  <!-- setTimeout(randomComposition, 2000, "#compositional_animals"); -->
-  <!-- setTimeout(randomComposition, 4000, "#compositional_madeof"); -->
 </script>
 <script src="bootstrap.bundle.min.js"></script>
   </body>
