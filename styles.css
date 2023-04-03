@@ -173,58 +173,9 @@ div.image_8 figure:hover figcaption.description {
   display: block;
 }
 
-div.compositional {
-  display: flex;
-  flex-wrap: wrap;
-  /* background-color: rgb(35, 35, 35); */
-  background-color: rgb(245, 245, 245);
-  padding: 0;
-  margin: 0;
-}
-
-div.compositional div.image img {
-  width: 100%;
-  margin: 0;
-}
-
-div.compositional div.text p {
-  margin: 0 0 10px 0;
-  font-family: monospace;
-}
-
-div.compositional div.text p.selectable {
-  padding: 0;
-  margin: 0 0 10px 0;
-}
-
-div.compositional div.text span {
-  padding-right: 10px;
-  color: rgb(80, 80, 80);
-  white-space: nowrap;
-  cursor: pointer;
-  font-size: 1.5em;
-}
-
-div.compositional.lighter div.text span {
-  padding-right: 10px;
-  color: rgb(106, 106, 106);
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-div.compositional div.text span.selected {
-  color: green;
-  font-weight: bold;
-}
-
-div.compositional div.text span.selected:hover {
-  color: green;
-  font-weight: bold;
-}
-
 div.authors {
-  /* background-color: rgb(26, 26, 26); */
   background-color: rgb(245, 245, 245);
+  padding: 50px 50px 10px 50px;
   color: #252525;
   font-size: 2em;
 }
@@ -611,47 +562,6 @@ a.read-paper button:hover {
     width: 100%;
   }
 
-  div.compositional div.image img {
-    width: 100%;
-    max-width: 512px;
-    margin: 0;
-  }
-
-  div.compositional div.text {
-    width: 100%;
-    padding: 25px;
-    font-size: 1.2em;
-  }
-
-  div.compositional div.text h3 {
-    margin: 0;
-    padding: 0 0 25px 0;
-    font-size: 1em;
-  }
-
-  div.compositional div.text h1.description {
-    font-size: 1.5em;
-    padding: 0;
-  }
-
-  div.compositional div.text p.description {
-    font-size: 1em;
-    padding-bottom: 25px;
-  }
-
-  div.compositional div.text p.left {
-    padding-right: 25px;
-  }
-  
-  div.compositional div.text p.right {
-    padding-left: 25px;
-    text-align: right;
-  }
-
-  div.compositional div.text span {
-    font-size: 1em;
-  }
-
   div.image_3x2 {
     display: flex;
   }
@@ -866,7 +776,7 @@ a.read-paper button:hover {
   }
 
   div.authors {
-    padding: 50px 100px 10px 50px;
+    padding: 50px 50px 10px 50px;
     font-size: 1.5em;
   }
 
@@ -1028,49 +938,6 @@ a.read-paper button:hover {
     width: 50%;
   }
 
-  div.compositional {
-    margin: auto;
-    max-width: 1200px;
-    margin: 30;
-  }
-
-  div.compositional div.image {
-    width: 50%;
-    max-width: 800;
-    margin: 0;
-  }
-
-  div.compositional div.text {
-    flex-grow: 1;
-    padding: 50px 50px 0 50px;
-    width: 50%;
-  }
-
-  div.compositional div.text h3 {
-    margin: 0;
-    padding: 0 0 50px 0;
-    font-size: 1.5em;
-  }
-
-  div.compositional div.text h1.description {
-    font-size: 2em;
-    padding: 0;
-  }
-
-  div.compositional div.text p.description {
-    font-size: 1.5em;
-    padding-bottom: 25px;
-  }
-
-  div.compositional div.text p.left {
-    padding: 0 0 10px 0;
-  }
-  
-  div.compositional div.text p.right {
-    padding: 0 0 10px 0;
-    text-align: right;
-  }
-
   div.image_3x2 {
     display: flex;
   }
@@ -1137,51 +1004,15 @@ div.text-small {
   font-size: 0.75em;
 }
 
-@media only screen and (min-width: 900px) and (max-width: 1599px) {
-  div.compositional div.text span {
-    font-size: 1.5em;
-  }
-
-  div.compositional div.text span:hover {
-    color: lightgreen;
-  }
+img.figure_image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1440px;
+  width: 90%;
+  padding: 0px;
+  border: solid;
+  border-width: 2px;
+  border-color: black;  
 }
-
-@media only screen and (min-width: 1600px) and (max-width: 1999px) {
-  div.compositional div.text span {
-    font-size: 1.6em;
-  }
-
-  div.compositional div.text span:hover {
-    font-size: 1.6em;
-    color: lightgreen;
-  }
-}
-
-@media only screen and (min-width: 2000px) {
-  div.compositional div.text span {
-    font-size: 2.5em;
-  }
-
-  div.compositional div.text span.selected:hover {
-    font-size: 2.5em;
-    color: lightgreen;
-  }
-
-  div.compositional div.text span:hover {
-    font-size: 2.5em;
-    color: lightgreen;
-  }
-
-  div.compositional div.text p.left {
-    padding: 0 0 50px 0;
-    text-align: left;
-  }
-  
-  div.compositional div.text p.right {
-    padding: 0 0 50px 0;
-    text-align: left;
-  }
-}
-
 
